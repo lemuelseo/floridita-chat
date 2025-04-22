@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Floridita Chat</title>
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <style>
+    :root {
+      --chat--color-primary: #fd7607;
+      --chat--color-primary-shade-50: #fd7607;
+      --chat--color-primary-shade-100: #fd7607;
+      --chat--color-secondary: #fd7607;
+      --chat--color-secondary-shade-50: #1ca08a;
+      --chat--color-white: #ffffff;
+      --chat--color-light: #f2f4f8;
+      --chat--color-light-shade-50: #e6e9f1;
+      --chat--color-light-shade-100: #c2c5cc;
+      --chat--color-medium: #d2d4d9;
+      --chat--color-dark: #f3a210;
+      --chat--color-disabled: #777980;
+      --chat--color-typing: #404040;
+      --chat--spacing: 1rem;
+      --chat--border-radius: 0.25rem;
+      --chat--transition-duration: 0.15s;
+      --chat--window--width: 400px;
+      --chat--window--height: 600px;
+      --chat--header-height: auto;
+      --chat--header--padding: var(--chat--spacing);
+      --chat--header--background: var(--chat--color-dark);
+      --chat--header--color: var(--chat--color-light);
+      --chat--header--border-top: none;
+      --chat--header--border-bottom: none;
+      --chat--heading--font-size: 2em;
+      --chat--subtitle--font-size: inherit;
+      --chat--subtitle--line-height: 1.8;
+      --chat--textarea--height: 50px;
+      --chat--message--font-size: 1rem;
+      --chat--message--padding: var(--chat--spacing);
+      --chat--message--border-radius: var(--chat--border-radius);
+      --chat--message-line-height: 1.8;
+      --chat--message--bot--background: var(--chat--color-white);
+      --chat--message--bot--color: #0a0a0a;
+      --chat--message--bot--border: none;
+      --chat--message--user--background: var(--chat--color-secondary);
+      --chat--message--user--color: var(--chat--color-white);
+      --chat--message--user--border: none;
+      --chat--message--pre--background: rgba(0, 0, 0, 0.05);
+      --chat--toggle--background: var(--chat--color-primary);
+      --chat--toggle--hover--background: var(--chat--color-primary-shade-50);
+      --chat--toggle--active--background: var(--chat--color-primary-shade-100);
+      --chat--toggle--color: var(--chat--color-white);
+      --chat--toggle--size: 64px;
+    }
+  </style>
+</head>
+<body>
+  <div id="n8n-chat"></div>
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    createChat({
+      webhookUrl: 'https://frankcopy.app.n8n.cloud/webhook/d2fc046d-155d-49be-aa8b-c25b4876558c/chat',
+      webhookConfig: {
+        method: 'POST',
+        headers: {}
+      },
+      target: '#n8n-chat',
+      mode: 'window',
+      chatInputKey: 'chatInput',
+      chatSessionKey: 'sessionId',
+      metadata: {},
+      showWelcomeScreen: false,
+      defaultLanguage: 'en',
+      initialMessages: [
+        'Hola Hola! 👋',
+        'Mi nombre es El Croqui, ¿En qué te puedo ayudar hoy?'
+      ],
+      i18n: {
+        en: {
+          title: 'Bienvenido a Floridita Food Truck',
+          subtitle: 'Asitente virtual 24/7.',
+          footer: '',
+          getStarted: 'New Conversation',
+          inputPlaceholder: 'Escribe tu pregunta..',
+        },
+      },
+    });
+  </script>
+</body>
+</html>
